@@ -1,0 +1,17 @@
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+
+
+entity tb_serial_adder is
+--  Port ( );
+end tb_serial_adder;
+
+architecture Behavioral of tb_serial_adder is
+
+begin
+
+
+end Behavioral;
