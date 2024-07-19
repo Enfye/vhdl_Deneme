@@ -13,9 +13,21 @@ entity display_bitmap is
 end display_bitmap;
 
 architecture Behavioral of display_bitmap is
-	type	bit_map	is array (0 to 79, 0 to 59, 0 to 7) of STD_LOGIC_VECTOR (7 downto 0);
+	type	square_8_8_bitmap	is	array (0 to 7) of STD_LOGIC_VECTOR(7 downto 0);
+	type	bit_map	is array (0 to 79, 0 to 59) of square_8_8_bitmap;
 	signal	displayMap	:bit_map:=	(others	=>	'0');
+	
+	signal	coloumn	: integer range 0 to 79 := 0;
+	signal	row		: integer range 0 to 59 := 0;
 begin
 
+	letter_placement:
+	process(clk) begin
+		if(coloumn	<	79) then
+			
+		else
+		end if;
+	end process;
+	
 
 end Behavioral;

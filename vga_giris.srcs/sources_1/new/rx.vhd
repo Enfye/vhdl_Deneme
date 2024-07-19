@@ -26,7 +26,7 @@ architecture Behavioral of rx is
 	signal temp_data_in : STD_LOGIC;
 	
 begin
-	temp_data_in	<=	not data_in;
+	temp_data_in	<=	 not  data_in;
 	process(clk)
 	begin
 		if(rising_edge(clk)) then

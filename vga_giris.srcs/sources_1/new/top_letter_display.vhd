@@ -8,6 +8,7 @@ entity top_letter_display is
     Port ( clk : in STD_LOGIC;
            rx_in : in STD_LOGIC;
            R,G,B : out STD_LOGIC;
+		   LED	 : out STD_LOGIC_VECTOR(7 downto 0);
            h_sync_out,v_sync_out : out STD_LOGIC);
 end top_letter_display;
 
@@ -32,12 +33,12 @@ architecture Behavioral of top_letter_display is
 			   bit_enable : out STD_LOGIC);
 	end component;
 	
-	component display_bitmap is
-		Port ( clk : in STD_LOGIC;
-			   letter_in : in STD_LOGIC_VECTOR (63 downto 0);
-			   pixel_x,pixel_y : in STD_LOGIC_VECTOR (9 downto 0);
-			   white_out : out STD_LOGIC);
-	end component;
+	--component display_bitmap is
+	--	Port ( clk : in STD_LOGIC;
+	--		   letter_in : in STD_LOGIC_VECTOR (63 downto 0);
+	--		   pixel_x,pixel_y : in STD_LOGIC_VECTOR (9 downto 0);
+	--		   white_out : out STD_LOGIC);
+	--end component;
 	
 	component rx is
 		Port ( data_in : in STD_LOGIC;
@@ -141,8 +142,10 @@ begin
 					if(fifo_empty_f = '0') then 
 						fifo_r_enable	<=	'1';
 						state			<=	SEND;
+						
 					end if;
 				when	SEND	=>
+					LED <= letter_hex_value;
 					fifo_r_enable	<=	'0';
 					if(counter < 10) then 
 						counter <= counter + 1;

@@ -28,7 +28,7 @@ clk <= not clk after ClockPeriod / 2;
 uut:	top_letter_display port map(clk,rx_in,R,G,B,h_sync_out,v_sync_out);
 
 	process begin
-		wait for 10 * baud_rate * ClockPeriod;
+		wait for 20 * baud_rate * ClockPeriod;
 		rx_in <= '0'; wait for baud_rate * ClockPeriod;
 		rx_in <= '0'; wait for baud_rate * ClockPeriod; rx_in <= '1'; wait for baud_rate * ClockPeriod;
 		rx_in <= '0'; wait for baud_rate * ClockPeriod; rx_in <= '0'; wait for baud_rate * ClockPeriod;
@@ -44,7 +44,7 @@ uut:	top_letter_display port map(clk,rx_in,R,G,B,h_sync_out,v_sync_out);
 		rx_in <= '0'; wait for baud_rate * ClockPeriod; rx_in <= '0'; wait for baud_rate * ClockPeriod;
 		rx_in <= '1'; wait for baud_rate * ClockPeriod; rx_in <= '0'; wait for baud_rate * ClockPeriod;
 		rx_in <= '1'; wait for baud_rate * ClockPeriod; rx_in <= '0'; wait for baud_rate * ClockPeriod;
-		rx_in <= '0'; wait for baud_rate * ClockPeriod;
+		rx_in <= '1'; wait for baud_rate * ClockPeriod;
 		rx_in <= '1'; wait for baud_rate * ClockPeriod;
 		wait for 10 * baud_rate * ClockPeriod;
 		wait for 200ms;
